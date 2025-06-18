@@ -17,7 +17,7 @@ export function Menu() {
 
     return (
         <main className={styles.main_in_menu}>
-            <article>
+            <article className={styles.box_top}>
                 {/* Este bloco está gerenciando o Bloco do topo da Home */}
                 <section className={styles.top_box_in_home}> {/* Classe para manipular a foto e o texto e um grid Layout*/ }
                     <div className={styles.texts}>
@@ -26,7 +26,7 @@ export function Menu() {
                         <button className={styles.buttondegrade}>Sobre Nós</button>
                     </div>
                     <div className={styles.picture_for_top}>
-                        <figure >
+                        <figure className={styles.figure_none}>
                             <img className={styles.picture_cantina} src={escola} alt="Cantina escolar" />
                         </figure>
                     </div>

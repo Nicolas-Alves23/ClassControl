@@ -10,8 +10,7 @@
     min-height: 100vh;
     max-width: 1250px;
     margin: 0 auto;
-    padding: 1rem;
-    overflow: hidden; /* Utilizado par os cards não sairem do contianer */
+    padding: 1rem;/* Utilizado par os cards não sairem do contianer */
 }
 
 .nome{
@@ -24,28 +23,30 @@
 }
 
 .top_box_in_home {
-        height: 100vh;
+        height: 80vh;
         width: 100vw;
         display: grid;
         grid-template-areas:
-            "texts texts picture"
-            "texts texts picture"
-            "texts texts picture";
+            "texts texts texts"
+            "picture picture picture"
+            "picture picture picture"
+            ;
 }
     
 .texts {
-    padding:70px 150px 0px;
     grid-area: texts;
-    margin-top:150px;
+
+}
+.figure_none{
+    margin: 0;
 }
     
 .picture_for_top {
-    margin-top:150px;
+
         grid-area: picture;
 }
 .picture_cantina{
-    height: 500px;
-    width: 600px;
+
     border-radius: 40px 0px 40px 0px;
     margin-right: 50px;
 }
@@ -77,4 +78,8 @@
 
 .buttondegrade{
     background:linear-gradient(rgb(255, 255, 255,));
+}
+.box_top{
+    height: 80vh;
+   
 }
