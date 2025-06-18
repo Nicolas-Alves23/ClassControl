@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+1p&family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=Poetsen+One&display=swap');
+
+
+
+/*
+       Aqui são os valores que mexemos com os styles de card
+          Ou seja, antes estavam com uma cor ciano 
+            Modifiquei para vermelho
+*/
+
+.card{
+    border: #2f197d1d solid 1px;
+    border-radius: 1rem;
+    padding: 2rem;
+    height: 300px;
+    max-width: 400px;
+    color: rgba(255, 255, 255, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    cursor: pointer;
+    box-shadow: rgba(1, 93, 105, 0.137) 0px 25px 50px -12px;
+    text-align: center;
+}
+
+.div_inside:hover{
+    transition: 0.2s ease;
+    color: rgb(0, 0, 0);
+    /* Quando o cursor passar por cima ^^ o icone terá está cor */
+}
+
+
+.div_inside {
+    display: flex;
+    flex-direction: column;
+    font-size: 8em;
+    color:#bf0000;
+    /* ^O icone e o texto tem está cor no padrão^ */
+    align-items: center;
+}
+
+.div_inside :global(svg) {
+    transition: transform 0.3s ease;
+  }
+  
+.card:nth-child(1):hover :global(svg) {
+    transform: rotate(-10deg);
+  }
+
+
+.card:nth-child(2):hover :global(svg) {
+    transform: rotate(10deg);
+  }
+
+.card:nth-child(3):hover :global(svg) {
+    transform: rotate(-5deg);
+  }
+
+.card:nth-child(4):hover :global(svg) {
+    transform: rotate(10deg);
+  }
+
+.card:nth-child(5):hover :global(svg) {
+      transform: rotate(-10deg);
+    }
+
+
+span {
+    font-size: .2em;
+    font-family: "M PLUS 1p", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}

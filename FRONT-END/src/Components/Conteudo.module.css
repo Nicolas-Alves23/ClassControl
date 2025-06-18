@@ -1,0 +1,8 @@
+.conteiner{
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    background-color: aquamarine;
+    height: 90vh;
+    
+}

@@ -1,0 +1,30 @@
+
+header{
+    background-color: #bf0000;
+}
+
+
+header h1{
+    text-align: center;
+    font-size: 5em;
+    color: #362d2d;
+}
+
+.container {
+    max-width: 1250px;
+    margin: 0 auto;
+    overflow: hidden; /* Utilizado par os cards não sairem do contianer */
+    padding: 2rem;
+}
+
+ul {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    margin-right: 20px;
+    padding: 0;
+    display: flex;
+    gap: 2rem;
+
+}
+
