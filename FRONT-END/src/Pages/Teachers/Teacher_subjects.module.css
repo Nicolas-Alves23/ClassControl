@@ -2,7 +2,7 @@
     min-height: 100vh;
     max-width: 1250px;
     margin: 0 auto;
-    overflow: hidden; /* Utilizado par os cards não sairem do contianer */
+    /* Utilizado par os cards não sairem do contianer */
     padding: 1rem;
     margin-top: 5rem;
 }

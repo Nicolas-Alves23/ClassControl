@@ -2,11 +2,9 @@ import styles from "./Menu.module.css";
 import { FaChalkboardTeacher, FaSchool, FaBookOpen, FaUserTie, FaDoorClosed } from "react-icons/fa";
 import { CardMenu } from "./CardMenu";
 import { Link } from 'react-router-dom'
-import escola from '../img/Escola.jpg'
-
+import { motion } from "framer-motion"
 
 export function Menu() {
-    const username = localStorage.getItem("username");
     const tipo = localStorage.getItem("tipo");
 
     // Define rotas com base no tipo do usuário
@@ -25,16 +23,15 @@ export function Menu() {
                         <h2 className={styles.second_text_pag}>Deixe para trás os problemas de organização e burocracia. Com nossa solução, você acompanha em tempo real o status das salas.Transforme a gestão das suas salas em uma tarefa simples e automatizada.</h2>
                         <button className={styles.buttondegrade}>Sobre Nós</button>
                     </div>
-                    <div className={styles.picture_for_top}>
-                        <figure className={styles.figure_none}>
-                            <img className={styles.picture_cantina} src={escola} alt="Cantina escolar" />
-                        </figure>
-                    </div>
                 </section>
             </article>
+            {/* Botões que são a parte mais importante do site */}
             <div className={styles.container}>
-                <h1 className={styles.nome}>Olá {username}</h1>
-                <div className={styles.containerCard}>
+                <motion.div className={styles.containerCard} 
+                    initial = {{opacity: 0, scale: 0.95}}
+                    animate = {{opacity: 1, scale: 1}}
+                    transition={{ duration: 0.5 }}
+                >
 
                     <Link to={link_disciplinas}>
                         <CardMenu icon={FaBookOpen} label="Disciplinas" />
@@ -55,12 +52,13 @@ export function Menu() {
                             </Link>
                         </>
                     )}
-
+                    
                     <Link to={link_salas}>
                         <CardMenu icon={FaDoorClosed} label="Salas" />
                     </Link>
-                </div>
+                </motion.div>
             </div>
+            
         </main>
     );
 }

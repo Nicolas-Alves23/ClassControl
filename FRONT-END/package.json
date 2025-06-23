@@ -13,6 +13,7 @@
     "@hookform/resolvers": "^5.0.1",
     "axios": "^1.9.0",
     "dayjs": "^1.11.13",
+    "framer-motion": "^12.18.1",
     "FRONT-END": "file:",
     "motion": "^12.18.1",
     "react": "^19.1.0",

@@ -1,55 +1,38 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
-.containerCard {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 15px;
+.box_top{
+   min-height: 40vh
+   
 }
 
-.container {
-    min-height: 100vh;
-    max-width: 1250px;
-    margin: 0 auto;
-    padding: 1rem;/* Utilizado par os cards não sairem do contianer */
+.containerCard{
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 20px 0px;
 }
-
 .nome{
-    margin-top: 2rem;
-    font-family: "Poetsen One", sans-serif;
-    font-weight: 200;
-    font-style: normal;
-    color: #00BFB3;
-    font-size: 2em;
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-size:70px;
+  font-style: normal;
+  color:rgb(0, 0, 0);
+  margin:0;
 }
 
 .top_box_in_home {
-        height: 80vh;
+         min-height: 40vh;
         width: 100vw;
         display: grid;
         grid-template-areas:
-            "texts texts texts"
-            "picture picture picture"
-            "picture picture picture"
-            ;
+            "texts texts texts";
 }
     
 .texts {
     grid-area: texts;
+    padding: 80px 40px 0px;
+}
 
-}
-.figure_none{
-    margin: 0;
-}
-    
-.picture_for_top {
-
-        grid-area: picture;
-}
-.picture_cantina{
-
-    border-radius: 40px 0px 40px 0px;
-    margin-right: 50px;
-}
 
 .first_text_pag{
   font-family: "Inter", sans-serif;
@@ -62,7 +45,8 @@
 }
 
 .second_text_pag{
-  padding-left:80px;
+  padding-left:200px;
+  padding-right:400px;
   font-family: "Inter", sans-serif;
   font-optical-sizing: auto;
   font-weight: 200;
@@ -78,8 +62,4 @@
 
 .buttondegrade{
     background:linear-gradient(rgb(255, 255, 255,));
-}
-.box_top{
-    height: 80vh;
-   
 }

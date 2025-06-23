@@ -51,7 +51,7 @@ export function Enviroument_Manager() {
         <main>
               <div className={styles.filtro}>
         <h1>Reserva</h1>
-        <Link to="/gestor/disciplina/criar/">
+        <Link to="/gestor/reserva/criar/">
           <FiPlus size={24} title="Adicionar" />
         </Link>
       </div>
