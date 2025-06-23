@@ -49,6 +49,10 @@ export function Rotas() {
                 <Route path='/gestor/reserva' element={<Enviroument_Manager/>}/>
                 <Route path='/gestor/reserva/criar' element={<Enviroument_Register/>}/>
                 <Route path='/gestor/reserva/editar/:id' element={<Enviroument_Edit/>}/>
+
+                <Route path='/professor/disciplina' element={<Teacher_subjects/>}/>
+                <Route path='/professor/reserva' element={<Teacher_Envirouments/>}/>
+
             </Route>
         </Routes>
     );
