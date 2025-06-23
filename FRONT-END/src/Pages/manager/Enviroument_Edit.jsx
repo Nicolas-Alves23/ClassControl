@@ -4,7 +4,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 import { data } from 'react-router-dom';
-
+import { useParams, useNavigate } from 'react-router-dom';
 
 const schemaAmbiente = z.object({
 
@@ -27,7 +27,10 @@ const schemaAmbiente = z.object({
 
 });
 
-export function Enviroument_Register() {
+export function Enviroument_Edit() {
+
+    const { id } = useParams();
+    const navigate = useNavigate();
     const [professores, setProfessores] = useState([]);
     const [salas, setSalas] = useState([]);
     const [disciplinas, setDisciplinas] = useState([]);
@@ -76,6 +79,8 @@ export function Enviroument_Register() {
     }, []);
 
 
+    
+
     useEffect(() => {
         async function buscarSalas() {
             try {
@@ -96,20 +101,37 @@ export function Enviroument_Register() {
 
 
     useEffect(() => {
-        const token = localStorage.getItem('access_token');
-
-        axios.get('http://127.0.0.1:8000/api/reserva/', {
-            headers: {
-                'Authorization': `Bearer ${token}`
-            }
-        })
-            .then(response => {
-                setReserva_ambiente(response.data);
+          async function buscaredit() {
+            try {
+                const token = localStorage.getItem('access_token');
+                const response = await axios.get('http://127.0.0.1:8000/api/reserva/', {
+                    headers: {
+                        'Authorization': `Bearer ${token}`
+                    }
+                });
+                setProfessores(response.data);
                 console.log(response.data)
-            })
-            .catch(error => {
-                console.error("Erro ao buscar as reservas", error);
-            });
+                console.log("Token:", token);
+                console.log("ID da reserva:", id);
+                console.log("URL da requisição:", `http://127.0.0.1:8000/api/reserva/${id}/`);
+
+                //Preenche o formulários com os dados do registro do ID
+                const resreserva = await axios.get(`http://127.0.0.1:8000/api/reserva/${id}/`, {
+                    headers: {
+                        'Authorization': `Bearer ${token}`,
+                        'Accept': 'application/json'
+                    }
+                });
+                console.log("Segunda etapa feita")
+                // Preenche o formulário
+                reset(resreserva.data);
+
+            } catch (error) {
+                console.error("Erro ao carregar professores", error);
+            }
+
+        }
+        buscaredit();
     }, []);
 
     async function obterDadosFormulario(data) {
@@ -117,8 +139,8 @@ export function Enviroument_Register() {
         try {
             const token = localStorage.getItem('access_token');
 
-            const response = await axios.post(
-                'http://127.0.0.1:8000/api/reserva/',
+            const response = await axios.put(
+                `http://127.0.0.1:8000/api/reserva/${id}/`,
                 data,
                 {
                     headers: {
@@ -128,13 +150,14 @@ export function Enviroument_Register() {
                 }
             );
 
-            console.log('Reserva cadastrado com sucesso!', response.data);
-            alert('Reserva cadastrado com sucesso!');
+            console.log('reserva atualizada com sucesso!', response.data);
+            alert('reserva atualizado com sucesso!');
             reset();
+            navigate('/home');
 
         } catch (error) {
-            console.error('Erro ao cadastrar Reserva', error);
-            alert("Erro ao cadastrar Reserva");
+            console.error('Erro ao cadastrar reserva', error);
+            alert("Erro ao cadastrar reserva");
         }
     }
 

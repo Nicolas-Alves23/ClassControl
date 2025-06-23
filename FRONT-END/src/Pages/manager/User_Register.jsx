@@ -5,7 +5,7 @@ import axios from 'axios';
 import { useState, useEffect } from 'react';
 
 
-const schemasSala = z.object({
+const schemasUser = z.object({
     username: z.string()
         .min(1, 'Informe ao menos um caractere')
         .max(100, 'Informe até 100 caracteres'),
@@ -44,7 +44,7 @@ export function User_Register() {
         formState: { errors },
         reset
     } = useForm({
-        resolver: zodResolver(schemasSala)
+        resolver: zodResolver(schemasUser)
     });
 
 

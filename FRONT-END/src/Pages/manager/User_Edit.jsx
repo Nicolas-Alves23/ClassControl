@@ -4,7 +4,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import estilos from './Subject_Edit.module.css';
+
 
 
 const schemasUser = z.object({

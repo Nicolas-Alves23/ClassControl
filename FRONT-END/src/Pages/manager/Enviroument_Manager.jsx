@@ -75,17 +75,17 @@ export function Enviroument_Manager() {
                 <td>{reserva_ambiente.periodo}</td>
                 <th>{reserva_ambiente.sala}</th>
                 <td>{reserva_ambiente.professor}</td>
-              {/* <td>
-                  <Link to={`/gestor/disciplina/editar/${disciplina.id}`}>
+               <td>
+                  <Link to={`/gestor/reserva/editar/${reserva_ambiente.id}`}>
                     <FiEdit size={20} title="Editar" />
                   </Link>
                   <FiTrash
                     size={20}
                     title="Excluir"
-                    onClick={() => handleDelete(disciplina.id)}
+                    onClick={() => handleDelete(reserva_ambiente.id)}
                     style={{ cursor: 'pointer', marginLeft: '8px' }}
                   />
-                </td> */}
+                </td> 
               </tr>
             ))}
           </tbody>

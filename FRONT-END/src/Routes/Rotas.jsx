@@ -21,6 +21,7 @@ import { Subject_Register } from "../Pages/manager/Subject_Register";
 
 import { Enviroument_Manager } from "../Pages/manager/Enviroument_Manager";
 import { Enviroument_Register } from "../Pages/manager/Enviroument_Register";
+import { Enviroument_Edit } from "../Pages/manager/Enviroument_Edit"
 
 
 export function Rotas() {
@@ -47,6 +48,7 @@ export function Rotas() {
 
                 <Route path='/gestor/reserva' element={<Enviroument_Manager/>}/>
                 <Route path='/gestor/reserva/criar' element={<Enviroument_Register/>}/>
+                <Route path='/gestor/reserva/editar/:id' element={<Enviroument_Edit/>}/>
             </Route>
         </Routes>
     );
