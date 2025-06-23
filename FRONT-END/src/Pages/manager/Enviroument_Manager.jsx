@@ -32,7 +32,7 @@ export function Enviroument_Manager() {
 
         const token = localStorage.getItem('access_token');
 
-        axios.delete(`http://127.0.0.1:8000/api/reserva/${id}`,{
+        axios.delete(`http://127.0.0.1:8000/api/reserva/${id}/`,{
             headers: {
                 'Authorization': `Bearer ${token}`
             }
