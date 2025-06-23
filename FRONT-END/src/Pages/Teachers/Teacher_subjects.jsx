@@ -1,7 +1,6 @@
 import axios from "axios";
 import React, { useState, useEffect, useCallback } from 'react';
 import { CardSubjects } from "../../components/CardSubjects";
-import { ToggleSwitch } from "../../components/ToggleSwitch";
 import styles from "./Teacher_subjects.module.css";
 import { useNavigate } from "react-router-dom";
 

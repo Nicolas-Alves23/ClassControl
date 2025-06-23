@@ -1,7 +1,8 @@
 import axios from "axios";
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import styles from "../Teachers/Teacher_Enviroument.module.css";
+import styles from "./styles_manager.module.css";
+import { Header } from "../../components/Header";
 // Importação dos ícones do React Icons
 import { FiPlus, FiEdit, FiTrash } from 'react-icons/fi';
 
@@ -48,17 +49,19 @@ export function Subjects_Manager() {
   };
 
   return (
-    <main className={styles.container}>
-      <div className={styles.filtro}>
+    <><Header />
+    <main className={styles.container_manger}>
+      <div className={styles.name_page_manager}>
         <h1>Disciplinas</h1>
         <Link to="/gestor/disciplina/criar/">
-          <FiPlus size={24} title="Adicionar" />
+          <FiPlus size={40} title="Adicionar" />
         </Link>
       </div>
-      <div style={{ marginTop: '1.5rem' }}>
-        <table>
+      <div className={styles.box_read}>
+        <table className={styles.table_manager}>
           <thead>
-            <tr>
+            <tr className={styles.title_table}>
+              <th>ID</th>
               <th>Nome</th>
               <th>Curso</th>
               <th>Descrição</th>
@@ -67,15 +70,16 @@ export function Subjects_Manager() {
               <th>Ação</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody className={styles.conteudo_table}> 
             {disciplinas.map(disciplina => (
               <tr key={disciplina.id}>
-                <td>{disciplina.nome}</td>
-                <td>{disciplina.curso}</td>
-                <td>{disciplina.descricao}</td>
-                <th>{disciplina.professor}</th>
-                <td>{disciplina.carga_horario}</td>
-              <td>
+                <td className={styles.text_in_tbody}>{disciplina.id}</td>
+                <td className={styles.text_in_tbody}>{disciplina.nome}</td>
+                <td className={styles.text_in_tbody}>{disciplina.curso}</td>
+                <td className={styles.text_in_tbody}>{disciplina.descricao}</td>
+                <th className={styles.text_in_tbody}>{disciplina.professor}</th>
+                <td className={styles.text_in_tbody}>{disciplina.carga_horario}</td>
+                <td className={styles.text_in_tbody}>
                   <Link to={`/gestor/disciplina/editar/${disciplina.id}`}>
                     <FiEdit size={20} title="Editar" />
                   </Link>
@@ -83,14 +87,13 @@ export function Subjects_Manager() {
                     size={20}
                     title="Excluir"
                     onClick={() => handleDelete(disciplina.id)}
-                    style={{ cursor: 'pointer', marginLeft: '8px' }}
-                  />
+                    style={{ cursor: 'pointer', marginLeft: '8px' }} />
                 </td>
               </tr>
             ))}
           </tbody>
         </table>
       </div>
-    </main>
+    </main></>
   );
 }

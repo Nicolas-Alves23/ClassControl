@@ -1,7 +1,8 @@
 import axios from "axios";
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import styles from "../Teachers/Teacher_Enviroument.module.css";
+import styles from "./styles_manager.module.css";
+import { Header } from "../../components/Header";
 // Importação dos ícones do React Icons
 import { FiPlus, FiEdit, FiTrash } from 'react-icons/fi';
 
@@ -48,17 +49,18 @@ export function User_Manager() {
   };
 
   return (
-    <main className={styles.container}>
-      <div className={styles.filtro}>
+    <><Header />
+    <main className={styles.container_manger}>
+      <div className={styles.name_page_manager}>
         <h1>Usuarios disponíveis</h1>
         <Link to="/gestor/usuario/register/">
-          <FiPlus size={24} title="Adicionar" />
+          <FiPlus size={40} title="Adicionar" />
         </Link>
       </div>
-      <div style={{ marginTop: '1.5rem' }}>
-        <table>
+      <div className={styles.box_read}>
+        <table className={styles.table_manager}>
           <thead>
-            <tr>
+            <tr className={styles.title_table}>
               <th>Id</th>
               <th>Username</th>
               <th>Ni</th>
@@ -68,16 +70,16 @@ export function User_Manager() {
               <th>Ação</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody className={styles.conteudo_table}>
             {usuario.map(user => (
               <tr key={user.id}>
-                <td>{user.id}</td>
-                <td>{user.username}</td>
-                <td>{user.ni}</td>
-                <td>{user.email}</td>
-                <th>{user.telefone}</th>
-                <th>{user.tipo}</th>
-              <td>
+                <td className={styles.text_in_tbody}>{user.id}</td>
+                <td className={styles.text_in_tbody}>{user.username}</td>
+                <td className={styles.text_in_tbody}>{user.ni}</td>
+                <td className={styles.text_in_tbody}>{user.email}</td>
+                <td className={styles.text_in_tbody}>{user.telefone}</td>
+                <td className={styles.text_in_tbody}>{user.tipo}</td>
+                <td className={styles.text_in_tbody}>
                   <Link to={`/gestor/usuario/editar/${user.id}`}>
                     <FiEdit size={20} title="Editar" />
                   </Link>
@@ -85,14 +87,13 @@ export function User_Manager() {
                     size={20}
                     title="Excluir"
                     onClick={() => handleDelete(user.id)}
-                    style={{ cursor: 'pointer', marginLeft: '8px' }}
-                  />
+                    style={{ cursor: 'pointer', marginLeft: '8px' }} />
                 </td>
               </tr>
             ))}
           </tbody>
         </table>
       </div>
-    </main>
+    </main></>
   );
 }

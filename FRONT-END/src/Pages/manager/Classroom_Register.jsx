@@ -3,8 +3,9 @@ import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
+import style from "./styles_register_and_edit.module.css"
+import { Header } from "../../components/Header";
 
- 
 const schemasSala = z.object({
     nome: z.string()
         .min(1, 'Informe ao menos um caractere')
@@ -63,39 +64,37 @@ export function Classroom_Register() {
     }
  
     return (
-        <div className='container'>
-           
-            <form onSubmit={handleSubmit(obterDadosFormulario)}>
-                    <h2>Criar Sala</h2>
-                    <label>Nome da sala</label>
-                    <input
-                        {...register("nome")}
-                        placeholder="Sala"
-                    />
-                    {errors.nome && <p className='error'>{errors.nome.message}</p>}
-                
-                    <label >Capacidade de alunos</label>
-                    <input
-                        type="number"
-                        {...register("capacidade", { valueAsNumber: true })}
-                        placeholder="Capacidade de Alunos"
-                    />
-                    {errors.capacidade && <p className='error'>{errors.capacidade.message}</p>}
+        <><Header />
+        <main className={style.container_register_and_edit}>
 
-                    <label >Tamanho da sala</label>
-                    <input
-                        type="number"
-                        {...register("tamanho", { valueAsNumber: true })}
-                        placeholder="tamanho da sala"
-                    />
-                    {errors.tamanho && <p className='error'>{errors.tamanho.message}</p>}
-               
-                 <div>
-                    <button type="submit">
+            <form className={style.form_register} onSubmit={handleSubmit(obterDadosFormulario)}>
+                <h2 className={style.title_register_and_edit}>Criar Sala</h2>
+                <label className={style.label_in_pag}>Nome da sala</label>
+                <input className={style.input_in_pag}
+                    {...register("nome")}
+                    placeholder="Sala" />
+                {errors.nome && <p className='error'>{errors.nome.message}</p>}
+
+                <label className={style.label_in_pag}>Capacidade de alunos</label>
+                <input className={style.input_in_pag}
+                    type="number"
+                    {...register("capacidade", { valueAsNumber: true })}
+                    placeholder="Capacidade de Alunos" />
+                {errors.capacidade && <p className='error'>{errors.capacidade.message}</p>}
+
+                <label className={style.label_in_pag}>Tamanho da sala</label>
+                <input className={style.input_in_pag}
+                    type="number"
+                    {...register("tamanho", { valueAsNumber: true })}
+                    placeholder="tamanho da sala" />
+                {errors.tamanho && <p className='error'>{errors.tamanho.message}</p>}
+
+                <div>
+                    <button className={style.button} type="submit">
                         Cadastrar
                     </button>
                 </div>
             </form>
-        </div>
+        </main></>
     );
 }

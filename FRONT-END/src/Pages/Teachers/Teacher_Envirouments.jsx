@@ -2,7 +2,6 @@ import { useState, useEffect, useCallback } from "react";
 import axios from "axios";
 import { CardEnviroument } from "../../components/CardEnviroument";
 import styles from "./Teacher_Enviroument.module.css";
-import { ToggleSwitch } from "../../components/ToggleSwitch";
 import { useNavigate } from "react-router-dom";
 
 export function Teacher_Envirouments() {

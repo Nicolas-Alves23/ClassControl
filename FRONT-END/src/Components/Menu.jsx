@@ -21,7 +21,7 @@ export function Menu() {
                     <div className={styles.texts}>
                         <h1 className={styles.first_text_pag}>Gerencie suas salas com facilidade e eficiência. </h1>
                         <h2 className={styles.second_text_pag}>Deixe para trás os problemas de organização e burocracia. Com nossa solução, você acompanha em tempo real o status das salas.Transforme a gestão das suas salas em uma tarefa simples e automatizada.</h2>
-                        <button className={styles.buttondegrade}>Sobre Nós</button>
+    
                     </div>
                 </section>
             </article>
@@ -33,17 +33,17 @@ export function Menu() {
                     transition={{ duration: 0.5 }}
                 >
 
-                    <Link to={link_disciplinas}>
-                        <CardMenu icon={FaBookOpen} label="Disciplinas" />
-                    </Link>
-
-                    <Link to={link_ambientes}>
-                        <CardMenu icon={FaSchool} label="Ambientes" />
-                    </Link>
-
-                    {/* Só exibe Professores e Gestores se tipo for 'G' */}
                     {tipo === 'G' && (
                         <>
+                            <Link to={link_disciplinas}>
+                                <CardMenu icon={FaBookOpen} label="Disciplinas" />
+                            </Link>
+
+                            <Link to={link_ambientes}>
+                                <CardMenu icon={FaSchool} label="Ambientes" />
+                            </Link>
+
+                            {/* Só exibe Professores e Gestores se tipo for 'G' */}
                             <Link to={link_usuarios}>
                                 <CardMenu icon={FaChalkboardTeacher} label="Professores" />
                             </Link>
@@ -53,6 +53,21 @@ export function Menu() {
                             <Link to={link_salas}>
                                 <CardMenu icon={FaDoorClosed} label="Salas" />
                             </Link>
+                        </>
+                    )}
+
+                    {tipo === 'P' && (
+                        <>
+                        <div className={styles.center_card}>
+
+                            <Link to={link_disciplinas}>
+                                <CardMenu icon={FaBookOpen} label="Disciplinas" />
+                            </Link>
+
+                            <Link to={link_ambientes}>
+                                <CardMenu icon={FaSchool} label="Ambientes" />
+                            </Link>
+                        </div>
                         </>
                     )}
 

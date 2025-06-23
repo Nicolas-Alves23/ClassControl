@@ -5,6 +5,8 @@ import axios from 'axios';
 import { useState, useEffect } from 'react';
 import { data } from 'react-router-dom';
 import { useParams, useNavigate } from 'react-router-dom';
+import style from "./styles_register_and_edit.module.css"
+import { Header } from "../../components/Header";
 
 const schemaAmbiente = z.object({
 
@@ -162,14 +164,15 @@ export function Enviroument_Edit() {
     }
 
     return (
-        <div className='container'>
-            <form onSubmit={handleSubmit(obterDadosFormulario)}>
-                <h2>Cadastro de Reserva</h2>
+        <><Header />
+        <main className={style.container_register_and_edit}>
+            <form className={style.form_register} onSubmit={handleSubmit(obterDadosFormulario)}>
+                <h2 className={style.title_register_and_edit}>Cadastro de Reserva</h2>
 
 
 
-                <label>Professor</label>
-                <select {...register('professor', { valueAsNumber: true })}>
+                <label className={style.label_in_pag}>Professor</label>
+                <select  className={style.input_in_pag}{...register('professor', { valueAsNumber: true })}>
                     <option value="">Selecione um professor</option>
                     {professores.map((prof) => (
                         prof.tipo == "P" && (
@@ -181,8 +184,8 @@ export function Enviroument_Edit() {
                 </select>
                 {errors.professor && <p className='error'>{errors.professor.message}</p>}
 
-                <label>Sala</label>
-                <select {...register('sala', { valueAsNumber: true })}>
+                <label className={style.label_in_pag}>Sala</label>
+                <select  className={style.input_in_pag}{...register('sala', { valueAsNumber: true })}>
                     <option value="">Selecione um sala</option>
                     {salas.map((sala) => (
                         <option key={sala.id} value={sala.id}>
@@ -192,8 +195,8 @@ export function Enviroument_Edit() {
                 </select>
                 {errors.sala && <p className='error'>{errors.sala.message}</p>}
 
-                <label>Disciplina</label>
-                <select {...register('disciplina', { valueAsNumber: true })}>
+                <label className={style.label_in_pag}>Disciplina</label>
+                <select  className={style.input_in_pag}{...register('disciplina', { valueAsNumber: true })}>
                     <option value="">Selecione uma disciplina</option>
                     {disciplinas.map((disciplina) => (
                         <option key={disciplina.id} value={disciplina.id}>
@@ -203,33 +206,31 @@ export function Enviroument_Edit() {
                 </select>
                 {errors.disciplina && <p className='error'>{errors.disciplina.message}</p>}
 
-                <label>Data de inicio</label>
-                <input
+                <label className={style.label_in_pag}>Data de inicio</label>
+                <input className={style.input_in_pag}
                     type="date"
-                    {...register("data_inicio")}
-                />
+                    {...register("data_inicio")} />
                 {errors.data_inicio && <p className="error">{errors.data_inicio.message}</p>}
 
-                <label>Data de termino</label>
-                <input
+                <label className={style.label_in_pag}>Data de termino</label>
+                <input className={style.input_in_pag}
                     type="date"
-                    {...register("data_termino")}
-                />
+                    {...register("data_termino")} />
                 {errors.data_termino && <p className="error">{errors.data_termino.message}</p>}
 
-                <label >Periodo</label>
-                <select {...register("periodo")}>
+                <label className={style.label_in_pag}>Periodo</label>
+                <select className={style.input_in_pag} {...register("periodo")}>
                     <option value=""> Selecione</option>
                     <option value="M"> Manhã</option>
                     <option value="T"> Tarde</option>
                     <option value="N"> Noite</option>
                 </select>
                 {errors.periodo && <p className='error'>{errors.periodo.message}</p>}
-                
+
                 <div>
-                    <button type="submit">Cadastrar</button>
+                    <button className={style.button} type="submit">Cadastrar</button>
                 </div>
             </form>
-        </div>
+        </main></>
     );
 }

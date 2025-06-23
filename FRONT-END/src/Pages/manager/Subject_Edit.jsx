@@ -4,8 +4,8 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import estilos from './Subject_Edit.module.css';
-
+import style from "./styles_register_and_edit.module.css"
+import { Header } from "../../components/Header";
 
 const schemaDisciplina = z.object({
     nome: z.string()
@@ -105,51 +105,48 @@ export function Subject_Edit() {
     }
 
     return (
-        <div className='container'>
+        <><Header />
+        <main className={style.container_register_and_edit}>
 
-            <form onSubmit={handleSubmit(obterDadosFormulario)}>
-                <h2>Editar de Disciplina</h2>
-                <label>Nome da Disciplina</label>
-                <input
+            <form className={style.form_register} onSubmit={handleSubmit(obterDadosFormulario)}>
+                <h2 className={style.title_register_and_edit}>Editar de Disciplina</h2>
+                <label className={style.label_in_pag}>Nome da Disciplina</label>
+                <input className={style.input_in_pag}
 
                     {...register('nome')}
-                    placeholder="Materia"
-                />
+                    placeholder="Materia" />
                 {errors.nome && <p className={estilos.error}>{errors.nome.message}</p>}
 
 
-                <label >Nome do curso</label>
-                <input
+                <label className={style.label_in_pag}>Nome do curso</label>
+                <input className={style.input_in_pag}
 
                     {...register('curso')}
-                    placeholder="Desenvolvimento de Sistema"
-                />
+                    placeholder="Desenvolvimento de Sistema" />
                 {errors.curso && <p className={estilos.error}>{errors.curso.message}</p>}
 
 
-                <label >Carga horária</label>
-                <input
+                <label className={style.label_in_pag}>Carga horária</label>
+                <input className={style.input_in_pag}
                     type="number"
 
                     {...register('carga_horario', { valueAsNumber: true })}
-                    placeholder="100"
-                />
+                    placeholder="100" />
                 {errors.carga_horario &&
                     <p>
                         {errors.carga_horario.message}
                     </p>}
 
 
-                <label>Descrição</label>
-                <textarea
+                <label className={style.label_in_pag}>Descrição</label>
+                <textarea className={style.input_in_pag}
                     {...register('descricao')}
                     placeholder="Descreva o curso com até 2000 caracteres"
-                    rows={5}
-                />
+                    rows={5} />
                 {errors.descricao && <p>{errors.descricao.message}</p>}
 
-                <label >Professor</label>
-                <select
+                <label className={style.label_in_pag}>Professor</label>
+                <select className={style.input_in_pag}
                     {...register('professor', { valueAsNumber: true })}>
                     <option value="">Selecione um professor</option>
                     {professores.map((prof) => (
@@ -161,11 +158,11 @@ export function Subject_Edit() {
                 {errors.professor && <p className={estilos.error}>{errors.professor.message}</p>}
 
                 <div>
-                    <button className={estilos.submitButton} type="submit">
+                    <button className={style.button} type="submit">
                         Cadastrar
                     </button>
                 </div>
             </form>
-        </div>
+        </main></>
     );
 }

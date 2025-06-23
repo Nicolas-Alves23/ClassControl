@@ -5,6 +5,12 @@
    
 }
 
+.center_card{
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+}
+
 .containerCard{
     display: flex;
     justify-content: space-between;
@@ -45,8 +51,9 @@
 }
 
 .second_text_pag{
-  padding-left:200px;
-  padding-right:400px;
+
+  padding-left:100px;
+  padding-right:900px;
   font-family: "Inter", sans-serif;
   font-optical-sizing: auto;
   font-weight: 200;
@@ -60,6 +67,3 @@
     background-color:rgb(255, 255, 255);
 }
 
-.buttondegrade{
-    background:linear-gradient(rgb(255, 255, 255,));
-}

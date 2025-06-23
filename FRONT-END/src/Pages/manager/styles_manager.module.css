@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+
+.container_manger {
+    width: 100vw;
+    min-height: 80vh;
+}
+
+.name_page_manager {
+    display: flex;
+    justify-content: center;
+}
+
+a {
+    color: blue;
+
+}
+
+.name_page_manager h1 {
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-size: 70px;
+    font-style: normal;
+    color: rgb(0, 0, 0);
+    margin: 0;
+}
+
+.box_read {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 40px;
+
+}
+
+.table_manager {
+    width: 60%;
+    text-align: center;
+}
+
+.title_table th {
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-size: 20px;
+    font-style: normal;
+    color: rgb(0, 0, 0);
+    margin: 0;
+}
+
+.conteudo_table {
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-size: 18px;
+    font-style: normal;
+    color: rgb(0, 0, 0);
+    margin: 0;
+}
+
+.text_in_tbody {}

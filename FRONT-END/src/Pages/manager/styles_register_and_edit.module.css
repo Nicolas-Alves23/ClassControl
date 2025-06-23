@@ -1,0 +1,70 @@
+.container_register_and_edit {
+  width: 100vw;
+  height: 90vh;
+}
+
+.form_register{
+  max-width: 500px;
+  margin: 40px auto;
+  padding: 40px;
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.title_register_and_edit {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.label_in_pag {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: #555;
+  margin-top: 15px;
+  margin-bottom: 5px;
+}
+
+.input_in_pag {
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #fff;
+  transition: border-color 0.3s ease;
+  color: #333;
+}
+
+.input_in_pag:focus {
+  border-color: #4a90e2;
+  outline: none;
+}
+
+.error {
+  color: #e74c3c;
+  font-size: 13px;
+  margin-top: 5px;
+}
+
+.button[type="submit"] {
+  margin-top: 25px;
+  width: 100%;
+  padding: 12px;
+  background-color: #4a90e2;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.button[type="submit"]:hover {
+  background-color: #357ab8;
+}

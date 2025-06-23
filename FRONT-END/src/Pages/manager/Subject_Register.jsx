@@ -3,7 +3,8 @@ import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
-
+import style from "./styles_register_and_edit.module.css"
+import { Header } from "../../components/Header";
  
 const schemaDisciplina = z.object({
     nome: z.string()
@@ -81,51 +82,50 @@ export function Subject_Register() {
     }
  
     return (
-        <div className='container'>
-            <form onSubmit={handleSubmit(obterDadosFormulario)}>
-                <h2>Cadastro de Disciplina</h2>
+        <><Header />
+        <main className={style.container_register_and_edit}>
+            <form  className={style.form_register} onSubmit={handleSubmit(obterDadosFormulario)}>
+                <h2 className={style.title_register_and_edit}>Cadastro de Disciplina</h2>
 
-                <label>Nome da Disciplina</label>
-                <input {...register('nome')} placeholder="Materia" />
+                <label className={style.label_in_pag}>Nome da Disciplina</label>
+                <input  className={style.input_in_pag} {...register('nome')} placeholder="Materia" />
                 {errors.nome && <p className='error'>{errors.nome.message}</p>}
 
-                <label>Nome do curso</label>
-                <input {...register('curso')} placeholder="Desenvolvimento de Sistema" />
+                <label className={style.label_in_pag}>Nome do curso</label>
+                <input  className={style.input_in_pag} {...register('curso')} placeholder="Desenvolvimento de Sistema" />
                 {errors.curso && <p className='error'>{errors.curso.message}</p>}
 
-                <label>Carga horária</label>
-                <input
+                <label className={style.label_in_pag}>Carga horária</label>
+                <input className={style.input_in_pag} 
                     type="number"
                     {...register('carga_horario', { valueAsNumber: true })}
-                    placeholder="75"
-                />
+                    placeholder="75" />
                 {errors.carga_horario && <p className='error'>{errors.carga_horario.message}</p>}
 
-                <label>Descrição</label>
-                <textarea
+                <label className={style.label_in_pag}>Descrição</label>
+                <textarea className={style.input_in_pag} 
                     {...register('descricao')}
                     placeholder="Descreva o curso com até 2000 caracteres"
-                    rows={5}
-                />
+                    rows={5} />
                 {errors.descricao && <p className='error'>{errors.descricao.message}</p>}
 
-                <label>Professor</label>
-                <select {...register('professor', { valueAsNumber: true })}>
+                <label className={style.label_in_pag}>Professor</label>
+                <select  className={style.input_in_pag} {...register('professor', { valueAsNumber: true })}>
                     <option value="">Selecione um professor</option>
                     {professores.map((prof) => (
-                        prof.tipo == "P" &&(
-                        <option key={prof.id} value={prof.id}>
-                            {prof.username}
-                        </option>
+                        prof.tipo == "P" && (
+                            <option key={prof.id} value={prof.id}>
+                                {prof.username}
+                            </option>
                         )
                     ))}
                 </select>
                 {errors.professor && <p className='error'>{errors.professor.message}</p>}
 
                 <div>
-                    <button type="submit">Cadastrar</button>
+                    <button className={style.button} type="submit">Cadastrar</button>
                 </div>
             </form>
-        </div>
+        </main></>
     );
 }

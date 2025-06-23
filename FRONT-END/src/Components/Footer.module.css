@@ -49,15 +49,15 @@
     margin: 10px 0;
   }
   
-  .link {
+  .links {
     color: #fff;
     text-decoration: none;
     font-size: 16px;
     transition: color 0.3s ease;
   }
   
-  .link:hover {
-    color: #00bcd4;
+  .links:hover {
+    color: blue;
   }
   
   .socialMedia {
@@ -73,7 +73,7 @@
   }
   
   .icon:hover {
-    color: #00bcd4;
+    color: blue;
   }
   
   .footerBottom {

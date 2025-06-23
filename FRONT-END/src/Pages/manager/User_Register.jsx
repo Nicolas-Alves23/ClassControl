@@ -3,7 +3,8 @@ import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
-
+import style from "./styles_register_and_edit.module.css"
+import { Header } from "../../components/Header";
 
 const schemasUser = z.object({
     username: z.string()
@@ -76,65 +77,59 @@ export function User_Register() {
     }
 
     return (
-        <div className='container'>
+        <><Header />
+        <main cclassName={style.container_register_and_edit}>
 
-            <form onSubmit={handleSubmit(obterDadosFormulario)}>
-                <h2>Criar Usuário</h2>
-                <label>Username</label>
-                <input
+            <form className={style.form_register} onSubmit={handleSubmit(obterDadosFormulario)}>
+                <h2 className={style.title_register_and_edit}>Criar Usuário</h2>
+                <label className={style.label_in_pag}>Username</label>
+                <input className={style.input_in_pag}
                     {...register("username")}
-                    placeholder="Username"
-                />
+                    placeholder="Username" />
                 {errors.username && <p className='error'>{errors.username.message}</p>}
 
-                <label >NI</label>
-                <input
+                <label className={style.label_in_pag}>NI</label>
+                <input className={style.input_in_pag}
                     type="number"
                     {...register("ni", { valueAsNumber: true })}
-                    placeholder="ni"
-                />
+                    placeholder="ni" />
                 {errors.ni && <p className='error'>{errors.ni.message}</p>}
 
-                <label >Email</label>
-                <input
+                <label className={style.label_in_pag}>Email</label>
+                <input className={style.input_in_pag}
                     {...register("email")}
-                    placeholder="email"
-                />
+                    placeholder="email" />
                 {errors.email && <p className='error'>{errors.email.message}</p>}
 
-                <label>Telefone</label>
-                <input
+                <label className={style.label_in_pag}>Telefone</label>
+                <input className={style.input_in_pag}
                     type="tel"
                     {...register("telefone")}
-                    placeholder="(99) 99999-9999"
-                />
+                    placeholder="(99) 99999-9999" />
                 {errors.telefone && <p className='error'>{errors.telefone.message}</p>}
 
-                <label>Senha</label>
-                <input
+                <label className={style.label_in_pag}>Senha</label>
+                <input className={style.input_in_pag}
                     type="password"
                     {...register("password")}
-                    placeholder="Mínimo de 6 caracteres"
-                />
+                    placeholder="Mínimo de 6 caracteres" />
                 {errors.password && <p className='error'>{errors.password.message}</p>}
 
-                <label>Data de contratação</label>
-                <input
+                <label className={style.label_in_pag}>Data de contratação</label>
+                <input className={style.input_in_pag}
                     type="date"
-                    {...register("data_contratacao")}
-                />
+                    {...register("data_contratacao")} />
                 {errors.data_contratacao && <p className="error">{errors.data_contratacao.message}</p>}
 
-                <label>Data de nascimento</label>
-                <input
+                <label className={style.label_in_pag}>Data de nascimento</label>
+                <input className={style.input_in_pag}
                     type="date"
-                    {...register("data_nascimento")}
-                />
+                    {...register("data_nascimento")} />
                 {errors.data_nascimento && <p className="error">{errors.data_nascimento.message}</p>}
 
 
-                <label>Tipo de Usuário</label>
-                <select {...register("tipo")}>
+                <label className={style.label_in_pag}>Tipo de Usuário</label>
+                <select  className={style.input_in_pag}{...register("tipo")}>
                     <option value="">Selecione o tipo</option>
                     <option value="P">Professor</option>
                     <option value="G">Gestor</option>
@@ -142,11 +137,11 @@ export function User_Register() {
                 {errors.tipo && <p className='error'>{errors.tipo.message}</p>}
 
                 <div>
-                    <button type="submit">
+                    <button className={style.button} type="submit">
                         Cadastrar
                     </button>
                 </div>
             </form>
-        </div>
+        </main></>
     );
 }

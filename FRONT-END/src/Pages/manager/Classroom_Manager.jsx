@@ -1,7 +1,8 @@
 import axios from "axios";
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import styles from "../Teachers/Teacher_Enviroument.module.css";
+import styles from "./styles_manager.module.css";
+import { Header } from "../../components/Header";
 // Importação dos ícones do React Icons
 import { FiPlus, FiEdit, FiTrash } from 'react-icons/fi';
 
@@ -16,13 +17,13 @@ export function Classroom_Manager() {
         'Authorization': `Bearer ${token}`
       }
     })
-    .then(response => {
-      setsalas(response.data);
-      console.log(response.data)
-    })
-    .catch(error => {
-      console.error("Erro ao buscar salas:", error);
-    });
+      .then(response => {
+        setsalas(response.data);
+        console.log(response.data)
+      })
+      .catch(error => {
+        console.error("Erro ao buscar salas:", error);
+      });
 
   }, []);
 
@@ -37,39 +38,42 @@ export function Classroom_Manager() {
         'Authorization': `Bearer ${token}`
       }
     })
-    .then(() => {
-      alert('Disciplina excluída com sucesso!');
-      setsalas(prev => prev.filter(dis => dis.id !== id));
-    })
-    .catch(error => {
-      console.error('Erro ao excluir disciplina:', error);
-      alert('Erro ao excluir a disciplina.');
-    });
+      .then(() => {
+        alert('Disciplina excluída com sucesso!');
+        setsalas(prev => prev.filter(dis => dis.id !== id));
+      })
+      .catch(error => {
+        console.error('Erro ao excluir disciplina:', error);
+        alert('Erro ao excluir a disciplina.');
+      });
   };
 
   return (
-    <main className={styles.container}>
-      <div className={styles.filtro}>
+    <><Header />
+    <main className={styles.container_manger}>
+      <div className={styles.name_page_manager}>
         <h1>Salas disponíveis</h1>
         <Link to="/gestor/sala/register/">
-          <FiPlus size={24} title="Adicionar" />
+          <FiPlus size={40} title="Adicionar" />
         </Link>
       </div>
-      <div style={{ marginTop: '1.5rem' }}>
-        <table>
+      <div className={styles.box_read}>
+        <table className={styles.table_manager}>
           <thead>
-            <tr>
+            <tr className={styles.title_table}>
+              <th>ID</th>
               <th>Nome</th>
               <th>Capacidade de alunos</th>
               <th>Ação</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody className={styles.conteudo_table}>
             {salas.map(sala => (
               <tr key={sala.id}>
-                <td>{sala.nome}</td>
-                <td>{sala.capacidade} alunos</td>
-              <td>
+                <td className={styles.text_in_tbody}>{sala.id}</td>
+                <td className={styles.text_in_tbody}>{sala.nome}</td>
+                <td className={styles.text_in_tbody}>{sala.capacidade} alunos</td>
+                <td className={styles.text_in_tbody}>
                   <Link to={`/gestor/sala/editar/${sala.id}`}>
                     <FiEdit size={20} title="Editar" />
                   </Link>
@@ -77,14 +81,13 @@ export function Classroom_Manager() {
                     size={20}
                     title="Excluir"
                     onClick={() => handleDelete(sala.id)}
-                    style={{ cursor: 'pointer', marginLeft: '8px' }}
-                  />
+                    style={{ cursor: 'pointer', marginLeft: '8px' }} />
                 </td>
               </tr>
             ))}
           </tbody>
         </table>
       </div>
-    </main>
+    </main></>
   );
 }
