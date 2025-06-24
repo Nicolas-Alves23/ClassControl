@@ -8,7 +8,7 @@ export function Header() {
         <header className={styles.container_header}>
             <nav>
                 <ul>
-                    <li><Link to="/home">ClassRoom</Link></li>
+                    <li><Link to="/home">ClassControl</Link></li>
                     <li className={styles.name_in_header}><Link to="/">Olá {username}</Link></li>
                 </ul>
             </nav>
