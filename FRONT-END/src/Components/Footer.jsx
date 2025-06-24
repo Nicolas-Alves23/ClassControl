@@ -7,7 +7,7 @@ export function Footer(){
     <footer className={styles.footer}>
       <div className={styles.container}>
         <div className={styles.info}>
-          <p className={styles.brand}>ClassRoom</p>
+          <p className={styles.brand}>ClassControl</p>
           <p className={styles.description}>A junção da tecnologia e a gestão em um lugar</p>
         </div>
 
