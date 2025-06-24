@@ -34,10 +34,10 @@ export function Teacher_Envirouments() {
     }, [fetchAmbientes]);
 
     return (
-        <div className={styles.container}>
-            <div className={styles.filtro}>
-                <h1>Agendamentos</h1>
-            </div>
+        <main className={styles.container}>
+    
+                <h1>Agendamentos de um Ambiente</h1>
+    
 
             <div className={styles.container_cards}>
                 {enviroument.map((reserva, index) => (
@@ -51,6 +51,6 @@ export function Teacher_Envirouments() {
                     />
                 ))}
             </div>
-        </div>
+        </main>
     );
 }

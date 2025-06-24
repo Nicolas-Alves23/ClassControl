@@ -1,8 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
 .container {
-    min-height: 100vh;
-    max-width: 1250px;
+    min-height: 80vh;
+    width: 100vw;
     margin: 0 auto;
-    /* Utilizado par os cards não sairem do contianer */
+    overflow: hidden; /* Utilizado par os cards não sairem do contianer */
     padding: 1rem;
     margin-top: 5rem;
 }
@@ -15,14 +17,15 @@
     padding-top: 2rem;
 }
 
-.filtro{
-    display: flex;
-    justify-content: space-between;
+
+.container h1{
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-size:70px;
+  font-style: normal;
+  color:rgb(0, 0, 0);
+  margin:0;
+
 }
 
-.filtro h1{
-    font-family: "Poetsen One", sans-serif;
-    font-weight: 200;
-    color:  #00bfb3;
-
-}

@@ -39,10 +39,10 @@ export function Teacher_subjects() {
 
 
   return (
-        <div className={styles.container}>
-            <div className={styles.filtro}>
+        <main className={styles.container}>
+        
                 <h1>Agendamentos</h1>
-            </div>
+        
 
             <div className={styles.container_cards}>
               {disciplinas.map((disciplina, index) => (
@@ -55,6 +55,6 @@ export function Teacher_subjects() {
                 />
               ))}
             </div>
-        </div>
+        </main>
   );
 }
